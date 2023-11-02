@@ -5,12 +5,7 @@ a:hover{text-decoration: none;}
 a{text-decoration: none;}
 li{list-style: none;}
 /*********************/
-.padding_left {
-    padding-left: 0;
-} 
-.padding_right {
-    padding-right: 0;
-}
+
 /*********************/ 
 body {
     background-color: hsl(204, 43%, 93%);
@@ -21,9 +16,14 @@ body {
 
 main {
     font-family: 'Karla', sans-serif;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 230px 1fr;
     .col1 {
+        grid-column-start: 1;
+        grid-column-end: 3;
         background-color: #fff;
-        padding: 45px 40px;
+        padding: 45px 40px 0 40px;
         h1 {
             font-size: 36px;
             font-weight: 700;
@@ -44,11 +44,13 @@ main {
         }
     }
     .col2 {
+        grid-column-start: 1;
+        grid-column-end: 2;
         background-color: #2bb3b1;
         min-height: 259px;
         display: flex;
-        justify-content: center;
         flex-direction: column;
+        justify-content: center;
         padding: 0 40px;
         h2 {
             text-transform: capitalize;
@@ -93,6 +95,8 @@ main {
         }
     }
     .col3 {
+        grid-column-start: 2;
+        grid-column-end: 3;
         background-color: #4abebd;
         min-height: 259px;
         display: flex;
@@ -131,7 +135,7 @@ main {
 @media (max-width: 992px) {
     main .col1 {
         background-color: #fff;
-        padding: 35px 40px;
+        padding: 35px 40px 0 40px;
     }
     main .col2 {
         padding: 0 30px;
@@ -143,19 +147,17 @@ main {
 
 @media (max-width: 575px) {
     body {
-        height: 110vh;
+        height: auto;
     }
     .container {
         max-height: fit-content;
     }
-    .padding_left {
-        padding-left: calc(var(--bs-gutter-x) * .5);
-    } 
-    .padding_right {
-        padding-right: calc(var(--bs-gutter-x) * .5);
+    main {
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-rows: 215px 1fr 1fr;
     }
     main .col1 {
-        padding: 30px;
+        padding: 30px 30px 0 30px;
     }
     main .col1 h1 {
         font-size: 22px;
@@ -168,8 +170,12 @@ main {
     }
     main .col2 {
         min-height: 230px;
+        grid-column-start: 1;
+        grid-column-end: 3;
     }
     main .col3 {
+        grid-column-start: 1;
+        grid-column-end: 3;
         min-height: 230px;
     }
     main .col2 h3 {

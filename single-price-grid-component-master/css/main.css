@@ -17,14 +17,6 @@ li {
 }
 
 /*********************/
-.padding_left {
-  padding-left: 0;
-}
-
-.padding_right {
-  padding-right: 0;
-}
-
 /*********************/
 body {
   background-color: hsl(204, 43%, 93%);
@@ -35,10 +27,15 @@ body {
 
 main {
   font-family: "Karla", sans-serif;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 230px 1fr;
 }
 main .col1 {
+  grid-column-start: 1;
+  grid-column-end: 3;
   background-color: #fff;
-  padding: 45px 40px;
+  padding: 45px 40px 0 40px;
 }
 main .col1 h1 {
   font-size: 36px;
@@ -59,11 +56,13 @@ main .col1 h3 {
   font-weight: 400;
 }
 main .col2 {
+  grid-column-start: 1;
+  grid-column-end: 2;
   background-color: #2bb3b1;
   min-height: 259px;
   display: flex;
-  justify-content: center;
   flex-direction: column;
+  justify-content: center;
   padding: 0 40px;
 }
 main .col2 h2 {
@@ -108,6 +107,8 @@ main .col2 a:hover {
   color: hsl(71, 73%, 54%);
 }
 main .col3 {
+  grid-column-start: 2;
+  grid-column-end: 3;
   background-color: #4abebd;
   min-height: 259px;
   display: flex;
@@ -142,7 +143,7 @@ main .col3 ul li:hover {
 @media (max-width: 992px) {
   main .col1 {
     background-color: #fff;
-    padding: 35px 40px;
+    padding: 35px 40px 0 40px;
   }
   main .col2 {
     padding: 0 30px;
@@ -153,19 +154,17 @@ main .col3 ul li:hover {
 }
 @media (max-width: 575px) {
   body {
-    height: 110vh;
+    height: auto;
   }
   .container {
     max-height: fit-content;
   }
-  .padding_left {
-    padding-left: calc(var(--bs-gutter-x) * 0.5);
-  }
-  .padding_right {
-    padding-right: calc(var(--bs-gutter-x) * 0.5);
+  main {
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: 215px 1fr 1fr;
   }
   main .col1 {
-    padding: 30px;
+    padding: 30px 30px 0 30px;
   }
   main .col1 h1 {
     font-size: 22px;
@@ -178,8 +177,12 @@ main .col3 ul li:hover {
   }
   main .col2 {
     min-height: 230px;
+    grid-column-start: 1;
+    grid-column-end: 3;
   }
   main .col3 {
+    grid-column-start: 1;
+    grid-column-end: 3;
     min-height: 230px;
   }
   main .col2 h3 {
